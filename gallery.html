@@ -1,1 +1,52 @@
-<!DOCTYPE html><html><head><title>Gallery</title><script src="https://cdn.tailwindcss.com"></script></head><body class="p-6 text-center"><h1 class="text-3xl font-bold">Gallery</h1><div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 px-4"><img src="tommy-kwak-DqiJQpuEOlU-unsplash.jpg" class="rounded shadow" alt="Landscaping 1"><img src="2f36670c-30b6-4539-9765-d95f71108ed7.png" class="rounded shadow" alt="Landscaping 2"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Cline Landscaping</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navigation -->
+  <header class="bg-green-700 text-white p-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-white text-lg font-semibold hover:underline">← Back to Home</a>
+      <h1 class="text-xl font-bold">Gallery</h1>
+      <div></div> <!-- Placeholder to balance flex space -->
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <section class="p-6 max-w-6xl mx-auto text-center fade-in">
+    <h2 class="text-3xl font-bold mb-6">Our Work</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <img src="channel-82-KpUqK6OABLY-unsplash.jpg" class="rounded-lg shadow hover:scale-105 transition" alt="Lawn">
+      <img src="tommy-kwak-DqiJQpuEOlU-unsplash.jpg" class="rounded-lg shadow hover:scale-105 transition" alt="Yard 1">
+      <img src="2f36670c-30b6-4539-9765-d95f71108ed7.png" class="rounded-lg shadow hover:scale-105 transition" alt="Yard 2">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center p-4 mt-10 text-sm">
+    &copy; 2025 Cline Landscaping LLC • Serving Utah Lawns
+  </footer>
+
+  <!-- Fade-in animation script -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
